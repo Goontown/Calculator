@@ -4,10 +4,7 @@ import datetime
 import math
 from decimal import *
 
-datetime.MINYEAR=2019
-datetime.MAXYEAR=2020
 
-#Today är dagens datum.
 today = datetime.datetime.today()
 
 def main ():
@@ -19,20 +16,25 @@ def main ():
         result = datetime.datetime.strptime(result, '%Y-%m-%d')
         print(result)
         diff=today-result
-        print("Amount of days for refund:",diff.days)
+        print("Amount of days Premuim has been accessiable",diff)
+        print("Amount of days for refund:",365-diff.days)
         price = 2.16438356
-        payback = diff.days * price
-        print("Customer's refund is:",payback,"SEK")
+        payback = 790 - (diff.days * price)
+        print("Customer's refund is:{:.2f}SEK".format(payback))
     else:
         user_input = datetime.datetime.strptime(user_input, '%Y-%m-%d')
         diff = today - user_input
-        print("Amount of days for refund:",diff.days)
+        print("Amount of days Premuim has been accessiable", diff)
+        print("Amount of days for refund:",365-diff.days)
         price = 2.16438356
-        payback = diff.days * price
-        print("Customer's refund is:{:.3f}SEK" (format(payback)))
+        payback = 790 - (diff.days * price)
+        print("Customer's refund is:{:.2f}SEK".format(payback))
 
+        #Day price if sub was started with black friday discount: 1.08516485
 
 if __name__ == '__main__':
+    main()
+
     main()
 
 
